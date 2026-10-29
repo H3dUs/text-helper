@@ -1,0 +1,96 @@
+{
+  "name": "text-helper",
+  "displayName": "Text Helper",
+  "description": "Набор полезных команд для работы с текстом: статистика, дата, регистр, сортировка строк",
+  "version": "1.0.0",
+  "publisher": "student",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/USERNAME/text-helper"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "text-helper.showStats",
+        "title": "Text Helper: Статистика текста"
+      },
+      {
+        "command": "text-helper.insertDate",
+        "title": "Text Helper: Вставить дату и время"
+      },
+      {
+        "command": "text-helper.upperCase",
+        "title": "Text Helper: В ВЕРХНИЙ регистр"
+      },
+      {
+        "command": "text-helper.lowerCase",
+        "title": "Text Helper: в нижний регистр"
+      },
+      {
+        "command": "text-helper.sortLines",
+        "title": "Text Helper: Отсортировать строки"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "text-helper.upperCase",
+          "when": "editorHasSelection",
+          "group": "9_textHelper@1"
+        },
+        {
+          "command": "text-helper.lowerCase",
+          "when": "editorHasSelection",
+          "group": "9_textHelper@2"
+        },
+        {
+          "command": "text-helper.sortLines",
+          "when": "editorHasSelection",
+          "group": "9_textHelper@3"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "text-helper.insertDate",
+        "key": "ctrl+alt+d",
+        "mac": "cmd+alt+d",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "Text Helper",
+      "properties": {
+        "textHelper.showStatusBar": {
+          "type": "boolean",
+          "default": true,
+          "description": "Показывать количество слов в строке состояния"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && node esbuild.js",
+    "watch": "node esbuild.js --watch",
+    "package": "npm run check-types && node esbuild.js --production",
+    "check-types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "20.x",
+    "@types/vscode": "1.90.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^5.6.0"
+  }
+}
