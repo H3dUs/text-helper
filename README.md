@@ -2,7 +2,7 @@
 
 Расширение для Visual Studio Code с набором полезных команд для работы с текстом.
 
-**Автор:** [Фамилия Имя Отчество], группа [номер группы]
+**Автор:** Дементьев Дмитрий Алексеевич, группа M3112
 
 Лабораторная работа №3 по дисциплине «Инструментальные средства разработки программного обеспечения».
 
@@ -35,7 +35,7 @@
 
 ### Из исходников
 ```bash
-git clone https://github.com/USERNAME/text-helper.git
+git clone https://github.com/H3dUs/text-helper.git
 cd text-helper
 npm install
 npm run compile
